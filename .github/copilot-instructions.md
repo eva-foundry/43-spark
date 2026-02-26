@@ -3,7 +3,7 @@
 **Template Version**: 3.2.0
 **Last Updated**: February 25, 2026 10:14 ET
 **Project**: EVA JP Spark -- Jurisprudence assistant (older)
-**Path**: `C:\AICOE\eva-foundation\43-spark\`
+**Path**: `C:\AICOE\eva-foundry\43-spark\`
 **Stack**: Python, FastAPI, React
 
 > This file is the Copilot operating manual for this repository.
@@ -72,7 +72,7 @@ Loop      --> return to Discover if tasks remain
 > The HTTP API is the only interface. One HTTP call beats ten file reads.
 > The API self-documents: `GET /model/agent-guide` returns the complete operating protocol.
 
-> **Full reference**: `C:\AICOE\eva-foundation\37-data-model\USER-GUIDE.md` (v2.5)
+> **Full reference**: `C:\AICOE\eva-foundry\37-data-model\USER-GUIDE.md` (v2.5)
 > The model is the single source of truth. One HTTP call beats 10 file reads.
 > Never grep source files for something the model already knows.
 
@@ -87,7 +87,7 @@ if (-not $h) {
     $base = "http://localhost:8010"
     $h = Invoke-RestMethod "$base/health" -ErrorAction SilentlyContinue
     if (-not $h) {
-        $env:PYTHONPATH = "C:\AICOE\eva-foundation\37-data-model"
+        $env:PYTHONPATH = "C:\AICOE\eva-foundry\37-data-model"
         Start-Process "C:\AICOE\.venv\Scripts\python.exe" `
             "-m uvicorn api.server:app --port 8010 --reload" -WindowStyle Hidden
         Start-Sleep 4
@@ -313,6 +313,18 @@ az logout; az login --use-device-code --tenant {TENANT_ID}
 ---
 
 ## PART 2 - PROJECT-SPECIFIC
+
+### Project Lock
+
+This file is the copilot-instructions for **43-spark** (EVA JP Spark).
+
+The workspace-level bootstrap rule "Step 1 -- Identify the active project from the currently open file path"
+applies **only at the initial load of this file** (first read at session start).
+Once this file has been loaded, the active project is locked to **43-spark** for the entire session.
+Do NOT re-evaluate project identity from editorContext or terminal CWD on each subsequent request.
+Work state and sprint context are read from `STATUS.md` and `PLAN.md` at bootstrap -- not from this file.
+
+---
 > PRESERVED from previous copilot-instructions.md (no PART structure detected).
 > Review and restructure into the PART 2 sections below as needed.
 
@@ -327,7 +339,7 @@ az logout; az login --use-device-code --tenant {TENANT_ID}
 
 You are working on **EVA-JP v1.2**, a bilingual (English / French) AI assistant web application for the Government of Canada. The frontend is built with React 18, TypeScript strict mode, Vite, and Fluent UI React v9. It must meet WCAG 2.1 AA accessibility and comply with the Treasury Board of Canada Secretariat Official Languages Act requirements.
 
-This app lives at `C:\AICOE\eva-foundation\31-eva-faces\eva-jp\` as a workspace in the **eva-faces monorepo**. It consumes `@eva/gc-design-system` and `@eva/ui` from sibling packages in `shared/` " no install or publish needed, npm workspaces symlinks them automatically.
+This app lives at `C:\AICOE\eva-foundry\31-eva-faces\eva-jp\` as a workspace in the **eva-faces monorepo**. It consumes `@eva/gc-design-system` and `@eva/ui` from sibling packages in `shared/` " no install or publish needed, npm workspaces symlinks them automatically.
 
 The source of truth for API shapes and business logic is: https://github.com/microsoft/PubSec-Info-Assistant/tree/main/app/frontend
 
@@ -512,6 +524,6 @@ All must pass before merging a PR:
 
 ---
 
-*Source template*: `C:\AICOE\eva-foundation\07-foundation-layer\02-design\artifact-templates\copilot-instructions-template.md` v3.2.0
-*Project 07 README*: `C:\AICOE\eva-foundation\07-foundation-layer\README.md`
-*EVA Data Model USER-GUIDE*: `C:\AICOE\eva-foundation\37-data-model\USER-GUIDE.md`
+*Source template*: `C:\AICOE\eva-foundry\07-foundation-layer\02-design\artifact-templates\copilot-instructions-template.md` v3.2.0
+*Project 07 README*: `C:\AICOE\eva-foundry\07-foundation-layer\README.md`
+*EVA Data Model USER-GUIDE*: `C:\AICOE\eva-foundry\37-data-model\USER-GUIDE.md`
