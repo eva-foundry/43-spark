@@ -1,0 +1,200 @@
+# 43-spark — Delivery Plan
+
+> **Project**: EVA-JP v1.2 Frontend Rebuild via GitHub Spark  
+> **Version**: 1.1 — February 24, 2026 10:33 PM ET  
+> **Owner**: AICOE EVA Team  
+> **Horizon**: 4 weeks to production-ready Codespace baseline
+
+---
+
+## Objective
+
+Produce a clean React 18 / `@eva/ui` / `@eva/gc-design-system` / WCAG 2.1 AA / bilingual EN-FR frontend for EVA-JP v1.2 using GitHub Spark as the scaffolding accelerator, then graduate to a GitHub repository under the `31-eva-faces` monorepo for team collaboration and Copilot coding agent augmentation.
+
+---
+
+## Guiding Principles
+
+1. **Prompt-first, code-second** — exhaust Spark natural-language iteration before touching raw code.
+2. **One acceptance criterion per iteration** — each Spark prompt targets a specific feature or quality gate.
+3. **Never break what works** — each iteration validates against the full AC list before proceeding.
+4. **Codespace is the editorial layer** — Spark scaffolds structure; Copilot agent mode in the Codespace refines details, handles edge cases, and wires real API calls.
+5. **Accessibility is non-negotiable** — no AC-02 (axe-core) failures ever ship.
+
+---
+
+## Phase Structure
+
+```
+Phase 0 — Prompt Engineering      (complete — this folder)
+Phase 1 — Spark Bootstrap          (Spark: initial prompt)
+Phase 2 — Shared Components        (Spark: iteration 2)
+Phase 3 — Screens                  (Spark: iterations 3–4)
+Phase 4 — Quality Pass             (Spark: iteration 5 + Codespace agent)
+Phase 5 — Repository & CI          (GitHub repo + Actions)
+Phase 6 — Codespace Hardening      (Copilot coding agent)
+```
+
+---
+
+## Phase 0 — Prompt Engineering ✅
+
+Goal: produce a single, self-contained, ready-to-paste Spark prompt that encodes all constraints so that no verbal clarification is needed during generation.
+
+| Task | Owner | Status |
+|------|-------|--------|
+| Scan existing codebase (PubSec-Info-Assistant frontend) | Team | ✅ Done |
+| Define stack, a11y, i18n, RBAC constraints | Team | ✅ Done |
+| Write spec JSON (`eva-jp-rebuild-spec.json`) | Team | ✅ Done |
+| Write PRD (`PRD-REBUILD-FLUENT-V9.md`) | Team | ✅ Done |
+| Write 5-iteration Spark prompt | AICOE | ✅ Done |
+| Define Epics / Features / User Stories | AICOE | ✅ Done |
+| Scaffold this 43-spark springboard folder | AICOE | 🔄 In Progress |
+
+**Output**: `prompts/FINAL-SPARK-PROMPT.md` — single source of truth for all Spark inputs.
+
+---
+
+## Phase 1 — Spark Bootstrap
+
+Goal: Spark generates the Phase 1 foundation — Vite config, theme, i18n, AnnouncerProvider, and the Layout shell.
+
+**Spark Prompt**: Block 1 from `prompts/FINAL-SPARK-PROMPT.md`  
+**Cost**: 4 premium Copilot requests  
+**Expected Duration**: < 5 minutes generation time
+
+| Deliverable | Acceptance Gate |
+|-------------|----------------|
+| `src/index.tsx` with **`GCThemeProvider`** (from `@eva/gc-design-system`) | AC-01 (no v8; no bare FluentProvider), AC-16 |
+| `src/theme.ts` | GC design tokens wired; no hardcoded hex |
+| `src/i18n/i18n.tsx` + both locale files | AC-03, AC-04, AC-05 |
+| `src/components/Annoucement/` | AC-10 (live region present) |
+| `src/pages/layout/Layout.tsx` | AC-06, AC-07, skip link, landmarks |
+
+**Validation steps**:
+1. Open Spark preview — no console errors
+2. Tab through header — skip link appears, nav links reachable
+3. Switch language — all strings flip, no reload
+4. Open DevTools → Accessibility tree — `banner`, `main`, `nav`, `contentinfo` all present
+
+---
+
+## Phase 2 — Shared Components
+
+Goal: all 20 shared components built and individually accessible.
+
+**Spark Prompt**: Block 2 from `prompts/FINAL-SPARK-PROMPT.md`  
+**Cost**: 4 premium Copilot requests  
+**Expected Duration**: < 10 minutes generation time
+
+Build order mirrors dependency graph. Components marked **`@eva`** must use the `EvaXxx` wrapper from `@eva/ui`; remaining components are EVA-JP-specific composites built on top of those wrappers.
+
+```
+AnnouncerProvider → WarningBanner → CharacterStreamer → UserChatMessage
+→ Answer → QuestionInput (@eva: EvaInput, EvaButton)
+→ AnalysisPanel → ChatHistory (@eva: EvaDrawer, EvaDataGrid)
+→ ExampleList
+→ FolderPicker → TagPicker (@eva: EvaSelect, EvaBadge)
+→ FilePicker → FileStatus (@eva: EvaDataGrid, EvaBadge, EvaSpinner)
+→ ResponseLengthButtonGroup → ChatModeButtonGroup (@eva: EvaButton)
+→ RAIPanel (@eva: EvaDialog, EvaButton)
+→ SupportingContent → SettingsIconButton (@eva: EvaIcon, EvaDialog)
+→ Title/LoadTitle
+```
+
+**Component acceptance gates** (spot-check each):
+- Focus ring visible on all interactive elements
+- `role="radiogroup"` on all toggle groups
+- Drawer close → focus returns to trigger
+- `CharacterStreamer` has `aria-live="polite"` on its container
+
+---
+
+## Phase 3 — Screens
+
+Goal: all 8 screens wired to real Fluent v9 components with i18n and RBAC.
+
+**Spark Prompts**: Blocks 3 (Chat) and 4 (all others) from `prompts/FINAL-SPARK-PROMPT.md`  
+**Cost**: 8 premium Copilot requests (2 prompts × 4)
+
+| Screen | Route | Key AC |
+|--------|-------|--------|
+| Layout Shell | `*` | AC-06, AC-07 |
+| Chat | `/` | AC-08, AC-10, AC-12 |
+| Manage Content | `/content` | AC-13 |
+| Translator | `/translator` | AC-11, AC-14 |
+| URL Scraper | `/urlscrapper` | AC-12, AC-15 |
+| TDA | `/tda` | AC-10 |
+| Math Tutor | `/tutor` | AC-10 |
+| 404 | `*` | AC-06, AC-07 |
+
+**Screen validation**: run `axe-core` (browser extension) on each route. Zero critical/serious before moving on.
+
+---
+
+## Phase 4 — Quality Pass
+
+Goal: close every remaining AC gap; enforce constraints that Spark may have drifted from.
+
+**Spark Prompt**: Block 5 from `prompts/FINAL-SPARK-PROMPT.md`  
+**Cost**: 4 premium Copilot requests
+
+Checklist (iterate until all pass):
+- `grep -r "@fluentui/react\"" src/` → 0 results (no v8 imports)
+- `grep -r "style={{" src/` → 0 hardcoded hex values
+- Every `makeStyles` with colour → `@media (forced-colors: active)` block present
+- `grep -rn "from '@fluentui/react-components'" src/ | grep -E "Button[^G]|Input[^P]|Select[^O]|Dialog[^T]|Drawer|Badge|DataGrid|Spinner|TabList|Textarea|Toast"` → 0 results (AC-16)
+- `grep -r "GCThemeProvider" src/index.tsx` → ≥ 1 result; `<FluentProvider` in `index.tsx` → 0 results (AC-16)
+- All 16 AC items in `ACCEPTANCE.md` verified manually
+
+---
+
+## Phase 5 — Repository & CI
+
+Goal: connect Spark to a GitHub repository; set up CI to block regressions.
+
+Steps:
+1. In Spark UI → **"Create repository"** → two-way sync enabled
+2. Clone locally: `git clone <repo>`
+3. Add GitHub Actions workflow:
+   - `npm run build` on every PR
+   - `axe-core` Playwright test suite (one test per screen)
+   - TypeScript strict check: `tsc --noEmit`
+4. Branch protection: require CI green before merge
+
+---
+
+## Phase 6 — Codespace Hardening
+
+Goal: use Copilot coding agent to close any remaining gaps that require codebase-level reasoning.
+
+Assign as GitHub Issues (assign to Copilot):
+- "Wire all mock API calls to real `/api/*` endpoints"
+- "Add keyboard navigation tests for ChatHistory drawer"
+- "Add NVDA + JAWS screen reader test notes to ACCEPTANCE.md"
+- "Implement retryAsyncFn utility and apply to Math Tutor"
+- "Implement eventSourceRef lifecycle in TDA screen"
+
+---
+
+## Risk Register
+
+| Risk | Likelihood | Mitigation |
+|------|-----------|------------|
+| Spark generates raw Fluent v9 instead of `@eva/ui` wrappers | High | Constraints stated in every prompt; AC-16 + Phase 4 grep catches bypasses |
+| Spark drifts to inline styles or v8 components | Medium | Constraints stated twice per prompt; quality-pass iteration catches leaks |
+| French translations are machine-duplicates of English | Medium | Phase 0 locale audit; FR validation gate in AC-03 |
+| axe-core failures on DataGrid keyboard nav | Medium | Use `EvaDataGrid` from `@eva/ui` — wraps Fluent v9 DataGrid with ARIA natively |
+| Spark exceeds token context for large prompts | Low | Prompts are split into 5 iterations; each is < 2 000 tokens |
+| `@media (forced-colors: active)` missing on new components | High | Skill file `a11y-wcag.md` forces this; quality-pass prompt checks it |
+
+---
+
+## Success Definition
+
+The rebuild is complete when:
+- All 16 AC items in `ACCEPTANCE.md` pass
+- `vite build` exits 0 with `tsc --noEmit` clean
+- `axe-core` scan shows 0 critical / 0 serious on all 8 screens
+- Language toggle confirmed in both EN and FR by a francophone reviewer
+- Windows High Contrast (black + white) tested manually on all screens

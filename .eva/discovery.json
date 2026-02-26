@@ -1,0 +1,269 @@
+{
+  "meta": {
+    "schema": "eva.discovery.v2",
+    "generated_at": "2026-02-25T11:55:59.828Z",
+    "repo": "C:\\AICOE\\eva-foundation\\43-spark"
+  },
+  "project": null,
+  "planned": {
+    "epic": {
+      "title": "43-spark — EVA Spark Springboard",
+      "source": "README.md"
+    },
+    "features": [
+      {
+        "id": "F43-01",
+        "title": "Objective",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F43-02",
+        "title": "Guiding Principles",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F43-03",
+        "title": "Phase Structure",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F43-04",
+        "title": "Phase 0 ? Prompt Engineering ?",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F43-05",
+        "title": "Phase 1 ? Spark Bootstrap",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F43-06",
+        "title": "Phase 2 ? Shared Components",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F43-07",
+        "title": "Phase 3 ? Screens",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F43-08",
+        "title": "Phase 4 ? Quality Pass",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F43-09",
+        "title": "Phase 5 ? Repository & CI",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F43-10",
+        "title": "Phase 6 ? Codespace Hardening",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F43-11",
+        "title": "Risk Register",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F43-12",
+        "title": "Success Definition",
+        "source": "veritas-plan.json"
+      }
+    ],
+    "stories": [
+      {
+        "id": "F43-02-001",
+        "title": "1 ? Paste the initial Spark prompt",
+        "feature_id": "F43-02",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F43-02-002",
+        "title": "2 ? Review the preview",
+        "feature_id": "F43-02",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F43-02-003",
+        "title": "3 ? Open in Codespace",
+        "feature_id": "F43-02",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F43-02-004",
+        "title": "4 ? Attach context and iterate",
+        "feature_id": "F43-02",
+        "source": "veritas-plan.json"
+      },
+      {
+        "id": "F43-02-005",
+        "title": "5 ? Validate",
+        "feature_id": "F43-02",
+        "source": "veritas-plan.json"
+      }
+    ],
+    "tasks": [],
+    "acceptance": [],
+    "declared_status": {}
+  },
+  "actual": {
+    "artifacts": [
+      {
+        "path": "ACCEPTANCE.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "manifest.yml",
+        "type": "config",
+        "story_tags": [
+          "F43-02-001",
+          "F43-02-002",
+          "F43-02-003",
+          "F43-02-004",
+          "F43-02-005"
+        ]
+      },
+      {
+        "path": "PLAN.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "PLAN.md.bak",
+        "type": "other",
+        "story_tags": []
+      },
+      {
+        "path": "README.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "STATUS.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/copilot-instructions.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "prompts/FINAL-SPARK-PROMPT.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": "workflows/spark-prompt-workflow.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".copilot/skills/a11y-wcag.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".copilot/skills/eva-ui.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".copilot/skills/i18n-enfr.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".copilot/skills/spark-workflow.md",
+        "type": "doc",
+        "story_tags": []
+      },
+      {
+        "path": ".github/copilot-skills/00-skill-index.skill.md",
+        "type": "doc",
+        "story_tags": []
+      }
+    ],
+    "story_artifact_map": {
+      "F43-02-001": {
+        "artifacts": [
+          {
+            "path": "manifest.yml",
+            "type": "config",
+            "story_tags": [
+              "F43-02-001",
+              "F43-02-002",
+              "F43-02-003",
+              "F43-02-004",
+              "F43-02-005"
+            ]
+          }
+        ]
+      },
+      "F43-02-002": {
+        "artifacts": [
+          {
+            "path": "manifest.yml",
+            "type": "config",
+            "story_tags": [
+              "F43-02-001",
+              "F43-02-002",
+              "F43-02-003",
+              "F43-02-004",
+              "F43-02-005"
+            ]
+          }
+        ]
+      },
+      "F43-02-003": {
+        "artifacts": [
+          {
+            "path": "manifest.yml",
+            "type": "config",
+            "story_tags": [
+              "F43-02-001",
+              "F43-02-002",
+              "F43-02-003",
+              "F43-02-004",
+              "F43-02-005"
+            ]
+          }
+        ]
+      },
+      "F43-02-004": {
+        "artifacts": [
+          {
+            "path": "manifest.yml",
+            "type": "config",
+            "story_tags": [
+              "F43-02-001",
+              "F43-02-002",
+              "F43-02-003",
+              "F43-02-004",
+              "F43-02-005"
+            ]
+          }
+        ]
+      },
+      "F43-02-005": {
+        "artifacts": [
+          {
+            "path": "manifest.yml",
+            "type": "config",
+            "story_tags": [
+              "F43-02-001",
+              "F43-02-002",
+              "F43-02-003",
+              "F43-02-004",
+              "F43-02-005"
+            ]
+          }
+        ]
+      }
+    },
+    "commit_evidence_map": {}
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "schema": "eva.veritas-plan.v1",
+  "generated_at": "2026-02-25T11:55:56.334Z",
+  "generated_from": [
+    "PLAN.md"
+  ],
+  "format_detected": "veritas",
+  "prefix": "F43",
+  "features": [
+    {
+      "id": "F43-01",
+      "title": "Objective",
+      "source_heading": "## Feature: Objective [ID=F43-01]",
+      "stories": []
+    },
+    {
+      "id": "F43-02",
+      "title": "Guiding Principles",
+      "source_heading": "## Feature: Guiding Principles [ID=F43-02]",
+      "stories": [
+        {
+          "id": "F43-02-001",
+          "title": "1 ? Paste the initial Spark prompt",
+          "feature_id": "F43-02",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F43-02-002",
+          "title": "2 ? Review the preview",
+          "feature_id": "F43-02",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F43-02-003",
+          "title": "3 ? Open in Codespace",
+          "feature_id": "F43-02",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F43-02-004",
+          "title": "4 ? Attach context and iterate",
+          "feature_id": "F43-02",
+          "source": "heading",
+          "tasks": []
+        },
+        {
+          "id": "F43-02-005",
+          "title": "5 ? Validate",
+          "feature_id": "F43-02",
+          "source": "heading",
+          "tasks": []
+        }
+      ]
+    },
+    {
+      "id": "F43-03",
+      "title": "Phase Structure",
+      "source_heading": "## Feature: Phase Structure [ID=F43-03]",
+      "stories": []
+    },
+    {
+      "id": "F43-04",
+      "title": "Phase 0 ? Prompt Engineering ?",
+      "source_heading": "## Feature: Phase 0 ? Prompt Engineering ? [ID=F43-04]",
+      "stories": []
+    },
+    {
+      "id": "F43-05",
+      "title": "Phase 1 ? Spark Bootstrap",
+      "source_heading": "## Feature: Phase 1 ? Spark Bootstrap [ID=F43-05]",
+      "stories": []
+    },
+    {
+      "id": "F43-06",
+      "title": "Phase 2 ? Shared Components",
+      "source_heading": "## Feature: Phase 2 ? Shared Components [ID=F43-06]",
+      "stories": []
+    },
+    {
+      "id": "F43-07",
+      "title": "Phase 3 ? Screens",
+      "source_heading": "## Feature: Phase 3 ? Screens [ID=F43-07]",
+      "stories": []
+    },
+    {
+      "id": "F43-08",
+      "title": "Phase 4 ? Quality Pass",
+      "source_heading": "## Feature: Phase 4 ? Quality Pass [ID=F43-08]",
+      "stories": []
+    },
+    {
+      "id": "F43-09",
+      "title": "Phase 5 ? Repository & CI",
+      "source_heading": "## Feature: Phase 5 ? Repository & CI [ID=F43-09]",
+      "stories": []
+    },
+    {
+      "id": "F43-10",
+      "title": "Phase 6 ? Codespace Hardening",
+      "source_heading": "## Feature: Phase 6 ? Codespace Hardening [ID=F43-10]",
+      "stories": []
+    },
+    {
+      "id": "F43-11",
+      "title": "Risk Register",
+      "source_heading": "## Feature: Risk Register [ID=F43-11]",
+      "stories": []
+    },
+    {
+      "id": "F43-12",
+      "title": "Success Definition",
+      "source_heading": "## Feature: Success Definition [ID=F43-12]",
+      "stories": []
+    }
+  ]
+}
